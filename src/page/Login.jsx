@@ -11,13 +11,17 @@ function Login() {
             <label htmlFor="email" className="text-[#ed7790] font-semibold">
               Email
             </label>
-            <input type="email" id="email" className="w-full p-[15px] rounded-[10px] text-[#ed7790] focus:outline-0" />
+            <input type="email" id="email" className="w-full p-[15px] rounded-[10px] bg-transparent border border-[#ff6072] text-[#ed7790] focus:outline-0" />
           </div>
           <div>
             <label htmlFor="password" className="text-[#ed7790] font-semibold">
               Password
             </label>
-            <input type="password" id="password" className="w-full p-[15px] rounded-[10px] text-[#ed7790] focus:outline-0" />
+            <input
+              type="password"
+              id="password"
+              className="w-full p-[15px] rounded-[10px] bg-transparent border border-[#ff6072]  text-[#ed7790] focus:outline-0"
+            />
           </div>
 
           <button type="submit" className="w-full p-[15px] rounded-[10px] bg-[#ff7a85] text-white font-semibold cursor-pointer hover:bg-[#ff6072]">
