@@ -6,7 +6,7 @@ function GlobalLayout({ children, backgroundColor = '' }) {
       <header>
         <h1 className="text-4xl font-bold">⊹⁺⸜ My Archive ⸝⁺⊹</h1>
       </header>
-      <main className={`relative w-[850px] max-w-[90vw] h-[600px] ${backgroundColor} rounded-[20px] p-[20px]`}>{children}</main>
+      <main className={`relative w-[850px] max-w-[90vw] h-[600px] ${backgroundColor} rounded-[20px]`}>{children}</main>
     </div>
   );
 }
