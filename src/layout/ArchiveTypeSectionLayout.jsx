@@ -24,7 +24,7 @@ function ArchiveTypeSectionLayout({ isAuthenticated, children }) {
         <></>
       )}
 
-      <div>{children}</div>
+      <>{children}</>
     </section>
   );
 }
