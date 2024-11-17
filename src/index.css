@@ -9,5 +9,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: Pretendard, sans-serif;
+  font-family: 'Ubuntu', sans-serif;
+  color: #2b2926;
 }
