@@ -1,9 +1,23 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 function GlobalLayout({ children }) {
-  const [isAuth, setIsAuth] = useState(false);
+  const [isAuth, setIsAuth] = useState(true);
+  const [isScrolled, setIsScrolled] = useState(false);
   console.log(setIsAuth);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  });
 
   const renderedHeaderLinks = () => {
     if (isAuth) {
@@ -24,12 +38,18 @@ function GlobalLayout({ children }) {
   };
 
   return (
-    <div className="w-full min-w-[1000px] h-full min-h-[100vh] flex flex-col items-center border p-[45px]">
-      <header className="w-full flex justify-between items-center">
-        <h1 className="text-3xl font-bold tracking-tight">My Archive .*:•</h1>
-        {renderedHeaderLinks()}
+    <div className="min-h-screen flex flex-col items-center">
+      <header
+        className={`sticky top-0 left-0 right-0 z-50 flex justify-center ${isScrolled ? 'bg-[#EDE9E6]/[.08] backdrop-blur-sm shadow-sm' : 'bg-transparent'}`}
+      >
+        <div className="w-full min-w-[1000px] max-w-[1200px] h-[80px] px-[45px] flex justify-between items-center">
+          <h1 className="text-3xl font-bold tracking-tight">My Archive .*:•</h1>
+          {renderedHeaderLinks()}
+        </div>
       </header>
-      <main className="relative w-full h-screen">{children}</main>
+      <main className="flex-1 flex justify-center">
+        <div className="w-full min-w-[1000px] max-w-[1200px] px-[45px] py-[40px]">{children}</div>
+      </main>
     </div>
   );
 }
