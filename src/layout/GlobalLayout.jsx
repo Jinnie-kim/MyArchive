@@ -1,19 +1,41 @@
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 
-function GlobalLayout({ children, backgroundColor = '' }) {
+function GlobalLayout({ children }) {
+  const [isAuth, setIsAuth] = useState(false);
+  console.log(setIsAuth);
+
+  const renderedHeaderLinks = () => {
+    if (isAuth) {
+      return (
+        <ul className="flex gap-2">
+          <li>Archives</li>
+          <li>Profile</li>
+          <li>Logout</li>
+        </ul>
+      );
+    }
+    return (
+      <ul className="flex gap-2">
+        <li>Login</li>
+        <li>Signup</li>
+      </ul>
+    );
+  };
+
   return (
-    <div className="w-full min-w-[1000px] h-full flex flex-col items-center gap-[20px]">
-      <header>
-        <h1 className="text-4xl font-bold">⊹⁺⸜ My Archive ⸝⁺⊹</h1>
+    <div className="w-full min-w-[1000px] h-full min-h-[100vh] flex flex-col items-center border p-[45px]">
+      <header className="w-full flex justify-between items-center">
+        <h1 className="text-3xl font-bold tracking-tight">My Archive .*:•</h1>
+        {renderedHeaderLinks()}
       </header>
-      <main className={`relative w-[850px] max-w-[90vw] h-[600px] ${backgroundColor} rounded-[20px]`}>{children}</main>
+      <main className="relative w-full h-full min-h-[100vh]">{children}</main>
     </div>
   );
 }
 
 GlobalLayout.propTypes = {
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
-  backgroundColor: PropTypes.string,
 };
 
 export default GlobalLayout;
