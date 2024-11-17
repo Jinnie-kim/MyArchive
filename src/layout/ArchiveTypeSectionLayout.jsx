@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 function ArchiveTypeSectionLayout({ isAuthenticated, children }) {
   return (
-    <section className="flex flex-col items-center gap-[50px] mt-[120px]">
+    <section className="flex flex-col items-center gap-[50px]">
       <h2>Archive your images, videos, notes, and websites that are all around the Internet</h2>
       <p>What do you want to archive? 😙</p>
       {isAuthenticated ? (

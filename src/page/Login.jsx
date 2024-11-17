@@ -3,7 +3,7 @@ import GlobalLayout from '../layout/GlobalLayout';
 function Login() {
   return (
     <GlobalLayout>
-      <div className="w-full h-full flex items-center justify-center">
+      <div className="flex items-center justify-center">
         <div className="w-[600px] p-[50px] flex flex-col gap-[50px] border border-[#CE8181] rounded-[10px]">
           <h2 className="text-[24px]">Login</h2>
 
