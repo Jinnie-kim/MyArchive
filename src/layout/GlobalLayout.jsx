@@ -29,7 +29,7 @@ function GlobalLayout({ children }) {
         <h1 className="text-3xl font-bold tracking-tight">My Archive .*:•</h1>
         {renderedHeaderLinks()}
       </header>
-      <main className="relative w-full h-full min-h-[100vh]">{children}</main>
+      <main className="relative w-full h-screen">{children}</main>
     </div>
   );
 }
