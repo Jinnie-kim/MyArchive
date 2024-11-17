@@ -10,12 +10,12 @@ function Login() {
           <form className="flex flex-col gap-[30px]">
             <div className="flex flex-col gap-[10px]">
               <label htmlFor="email">Email</label>
-              <input type="email" className="p-[10px] rounded-[10px] border border-[#E8D7D7] focus:outline-[#DCABAB]" />
+              <input type="email" className="p-[10px] rounded-[10px] border border-[#E8D7D7] focus:outline-[#DCABAB] bg-transparent" />
             </div>
 
             <div className="flex flex-col gap-[10px]">
               <label htmlFor="password">Password</label>
-              <input type="password" className="p-[10px] rounded-[10px] border border-[#E8D7D7] focus:outline-[#DCABAB]" />
+              <input type="password" className="p-[10px] rounded-[10px] border border-[#E8D7D7] focus:outline-[#DCABAB] bg-transparent" />
 
               <a href="/" className="ml-auto text-[14px] hover:text-[#CE8181]">
                 Forgot Password?
