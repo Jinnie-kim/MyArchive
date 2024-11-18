@@ -11,7 +11,7 @@ function Home() {
             See all archives
           </a>
           <div>
-            <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-rows-2 gap-12">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 grid-rows-2 gap-12">
               <li>
                 <ArchiveCard />
               </li>
