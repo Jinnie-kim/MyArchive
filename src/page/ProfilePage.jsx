@@ -3,7 +3,7 @@ import GlobalLayout from '../layout/GlobalLayout';
 function ProfilePage() {
   return (
     <GlobalLayout>
-      <div className="max-w-[600px] mx-auto">
+      <div className="mx-auto">
         <h2 className="text-[24px]">Profile Settings</h2>
 
         <div className="flex flex-col items-center gap-[80px]">
