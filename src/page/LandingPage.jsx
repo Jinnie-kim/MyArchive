@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import GlobalLayout from '../layout/GlobalLayout';
 import ArchiveTypeSectionLayout from '../layout/ArchiveTypeSectionLayout';
 import { LuSparkles } from 'react-icons/lu';
@@ -46,9 +47,12 @@ function LandingPage() {
           <section className="flex flex-col items-center gap-[50px]">
             <h2 className="text-[32px]">Ready to Start?</h2>
             <p>Join thousands of people who organise their digital life with My Archive</p>
-            <a className="w-[200px] h-[60px] bg-[#E8D7D7] hover:bg-[#DCABAB] hover:text-white rounded-[10px] text-[24px] flex items-center justify-center cursor-pointer">
+            <Link
+              to="/signup"
+              className="w-[200px] h-[60px] bg-[#E8D7D7] hover:bg-[#DCABAB] hover:text-white rounded-[10px] text-[24px] flex items-center justify-center cursor-pointer"
+            >
               Sign Up Now
-            </a>
+            </Link>
           </section>
         </div>
       </ArchiveTypeSectionLayout>

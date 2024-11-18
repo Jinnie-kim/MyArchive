@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import GlobalLayout from '../layout/GlobalLayout';
 
 function Signup() {
@@ -30,7 +31,10 @@ function Signup() {
           </form>
 
           <span className="mx-auto">
-            Already have an account? <a className="text-[#DCABAB] hover:text-[#CE8181] cursor-pointer">Log in</a>
+            Already have an account?
+            <Link to="/login" className="ml-[3px] text-[#DCABAB] hover:text-'[#CE8181] cursor-pointer">
+              Log in
+            </Link>
           </span>
         </div>
       </div>

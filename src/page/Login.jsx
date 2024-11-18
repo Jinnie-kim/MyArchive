@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import GlobalLayout from '../layout/GlobalLayout';
 
 function Login() {
@@ -28,7 +29,10 @@ function Login() {
           </form>
 
           <span className="mx-auto">
-            Don&#39;t you have an account? <a className="text-[#DCABAB] hover:text-[#CE8181] cursor-pointer">Sign up</a>
+            Don&#39;t you have an account?{' '}
+            <Link to="/signup" className="text-[#DCABAB] hover:text-[#CE8181] cursor-pointer">
+              Sign up
+            </Link>
           </span>
         </div>
       </div>
