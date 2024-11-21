@@ -1,7 +1,24 @@
 import { Link } from 'react-router-dom';
 import GlobalLayout from '../layout/GlobalLayout';
+import { useState } from 'react';
 
 function Signup() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassowrd] = useState('');
+
+  const getUserEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const getUserPassword = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const getConfirmPassowrd = (e) => {
+    setConfirmPassowrd(e.target.value);
+  };
+
   return (
     <GlobalLayout>
       <div className="flex items-center justify-center">
@@ -11,18 +28,33 @@ function Signup() {
           <form className="flex flex-col gap-[30px]">
             <div className="flex flex-col gap-[10px]">
               <label htmlFor="email">Email</label>
-              <input type="email" className="p-[10px] rounded-[10px] border border-[#E8D7D7] focus:outline-[#DCABAB] bg-transparent" />
+              <input
+                type="email"
+                value={email}
+                onChange={getUserEmail}
+                className="p-[10px] rounded-[10px] border border-[#E8D7D7] focus:outline-[#DCABAB] bg-transparent"
+              />
             </div>
 
             <div className="flex flex-col gap-[10px]">
               <label htmlFor="password">Password</label>
-              <input type="password" className="p-[10px] rounded-[10px] border border-[#E8D7D7] focus:outline-[#DCABAB] bg-transparent" />
+              <input
+                type="password"
+                value={password}
+                onChange={getUserPassword}
+                className="p-[10px] rounded-[10px] border border-[#E8D7D7] focus:outline-[#DCABAB] bg-transparent"
+              />
               <span className="text-[12px]">Password must be at least 8 characters</span>
             </div>
 
             <div className="flex flex-col gap-[10px]">
               <label htmlFor="confirm_password">Confirm Password</label>
-              <input type="password" className="p-[10px] rounded-[10px] border border-[#E8D7D7] focus:outline-[#DCABAB] bg-transparent" />
+              <input
+                type="password"
+                value={confirmPassword}
+                onChange={getConfirmPassowrd}
+                className="p-[10px] rounded-[10px] border border-[#E8D7D7] focus:outline-[#DCABAB] bg-transparent"
+              />
             </div>
 
             <button type="submit" className="p-[10px] rounded-[10px] bg-[#E8D7D7]">
