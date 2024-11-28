@@ -1,8 +1,10 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { signin } from '../auth/auth';
 import GlobalLayout from '../layout/GlobalLayout';
 
 function Login() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [emailValidation, setEmailValidation] = useState(false);
   const [password, setPassword] = useState('');
@@ -31,13 +33,25 @@ function Login() {
     setIsDisabled(!(checkEmailRegex && checkPasswordRegex));
   };
 
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    const result = await signin(email, password);
+
+    if (result.success) {
+      navigate('/home');
+    } else {
+      alert(result.message);
+    }
+  };
+
   return (
     <GlobalLayout>
       <div className="flex items-center justify-center">
         <div className="w-[600px] p-[50px] flex flex-col gap-[50px] border border-[#CE8181] rounded-[10px]">
           <h2 className="text-[24px]">Login</h2>
 
-          <form className="flex flex-col gap-[30px]">
+          <form className="flex flex-col gap-[30px]" onSubmit={handleLogin}>
             <div className="flex flex-col gap-[10px]">
               <div className="flex items-center gap-1">
                 <label htmlFor="email">Email</label>
