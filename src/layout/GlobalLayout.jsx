@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { useAuth } from '../store/useAuth';
+import { signout } from '../auth/auth';
 
 function GlobalLayout({ children }) {
-  const [isAuth, setIsAuth] = useState(true);
-  const [isScrolled, setIsScrolled] = useState(false);
-  console.log(setIsAuth);
+  const { user } = useAuth();
+  const [isScrolled, setIsScrolled] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,8 +21,17 @@ function GlobalLayout({ children }) {
     return () => window.removeEventListener('scroll', handleScroll);
   });
 
+  const handleLogout = async () => {
+    const { error } = await signout();
+
+    if (error) {
+      alert('로그아웃에 실패했습니다.', error);
+      return;
+    }
+  };
+
   const renderedHeaderLinks = () => {
-    if (isAuth) {
+    if (user) {
       return (
         <ul className="flex gap-2">
           <li>
@@ -31,7 +41,9 @@ function GlobalLayout({ children }) {
             <Link to="/profile">Profile</Link>
           </li>
           <li>
-            <Link to="/">Logout</Link>
+            <button type="button" onClick={handleLogout}>
+              Logout
+            </button>
           </li>
         </ul>
       );
