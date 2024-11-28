@@ -1,8 +1,10 @@
-import { Link } from 'react-router-dom';
-import GlobalLayout from '../layout/GlobalLayout';
 import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { signup } from '../auth/auth';
+import GlobalLayout from '../layout/GlobalLayout';
 
 function Signup() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [emailValidation, setEmailValidation] = useState(false);
   const [password, setPassword] = useState('');
@@ -39,13 +41,25 @@ function Signup() {
     setIsDisabled(!emailValidation && !passwordValidation && !confirmPasswordValidation);
   };
 
+  const handleSignup = async (e) => {
+    e.preventDefault();
+
+    const result = await signup(email, password);
+
+    if (result.success) {
+      navigate('/home');
+    } else if (result.message === 'User already registered') {
+      alert(result.message);
+    }
+  };
+
   return (
     <GlobalLayout>
       <div className="flex items-center justify-center">
         <div className="w-[600px] p-[50px] flex flex-col gap-[50px] border border-[#CE8181] rounded-[10px]">
           <h2 className="text-[24px]">Sign Up</h2>
 
-          <form className="flex flex-col gap-[30px]">
+          <form className="flex flex-col gap-[30px]" onSubmit={handleSignup}>
             <div className="flex flex-col gap-[10px]">
               <div className="flex items-center gap-1">
                 <label htmlFor="email">Email</label>
