@@ -10,8 +10,6 @@ import { useAuth } from '../store/useAuth';
 const Router = () => {
   const { user, loading } = useAuth();
 
-  console.log('router user', user);
-
   if (loading) {
     return <div>Loading...</div>;
   }
