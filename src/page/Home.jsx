@@ -5,7 +5,7 @@ import GlobalLayout from '../layout/GlobalLayout';
 function Home() {
   return (
     <GlobalLayout>
-      <ArchiveTypeSectionLayout isAuthenticated={true}>
+      <ArchiveTypeSectionLayout>
         <section className="flex flex-col gap-12">
           <a href="/" className="ml-auto pb-[5px] border-b-[2px] border-[#DCABAB] hover:text-[#DCABAB]">
             See all archives
