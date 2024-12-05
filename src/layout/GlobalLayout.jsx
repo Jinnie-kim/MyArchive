@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useAuth } from '../store/useAuth';
-import { signout } from '../auth/auth';
+import { signout } from '../api/auth';
 
 function GlobalLayout({ children }) {
   const { user } = useAuth();

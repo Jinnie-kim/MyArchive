@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { signup } from '../auth/auth';
+import { signup } from '../api/auth';
 import GlobalLayout from '../layout/GlobalLayout';
 
 function Signup() {
